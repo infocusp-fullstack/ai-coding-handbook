@@ -1,0 +1,103 @@
+# CLAUDE.md - Project Instructions for Claude Code
+
+> Copy this file to your project root and customize it.
+> Claude Code reads this file automatically to understand your project.
+
+## Project Overview
+
+[Brief description of what this project does - 2-3 sentences]
+
+**Tech Stack:**
+- Language: [e.g., TypeScript, Python, Go]
+- Framework: [e.g., Next.js, FastAPI, Express]
+- Database: [e.g., PostgreSQL, MongoDB]
+- Key Libraries: [e.g., React Query, Prisma, Zod]
+
+## Repository Structure
+
+```
+├── src/
+│   ├── api/           # API routes/handlers
+│   ├── components/    # UI components
+│   ├── lib/           # Shared utilities
+│   ├── models/        # Data models/types
+│   └── services/      # Business logic
+├── tests/             # Test files
+├── docs/              # Documentation
+└── scripts/           # Build/deployment scripts
+```
+
+## Common Commands
+
+```bash
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm start            # Start production server
+
+# Testing
+npm test             # Run all tests
+npm run test:watch   # Run tests in watch mode
+npm run test:cov     # Run tests with coverage
+
+# Code Quality
+npm run lint         # Run linter
+npm run lint:fix     # Fix linting issues
+npm run typecheck    # Run type checking
+
+# Database
+npm run db:migrate   # Run database migrations
+npm run db:seed      # Seed database
+npm run db:reset     # Reset database
+```
+
+## Code Conventions
+
+### File Naming
+- Components: PascalCase (`UserProfile.tsx`)
+- Utilities: camelCase (`formatDate.ts`)
+- Constants: SCREAMING_SNAKE_CASE in files (`API_ROUTES.ts`)
+- Tests: `*.test.ts` or `*.spec.ts`
+
+### Code Style
+- [List your key conventions]
+- [e.g., Use functional components with hooks]
+- [e.g., Prefer named exports over default exports]
+- [e.g., Use async/await instead of .then()]
+
+### Patterns
+- [Describe patterns used in your codebase]
+- [e.g., Repository pattern for data access]
+- [e.g., Factory pattern for creating services]
+
+## Important Files
+
+- `src/lib/api.ts` - API client configuration
+- `src/lib/auth.ts` - Authentication utilities
+- `src/types/index.ts` - Shared TypeScript types
+- `.env.example` - Environment variables template
+
+## Testing Guidelines
+
+- Unit tests for all business logic
+- Integration tests for API endpoints
+- Use `jest.mock()` for external dependencies
+- Follow AAA pattern (Arrange, Act, Assert)
+
+## Environment Variables
+
+Required variables (see `.env.example`):
+- `DATABASE_URL` - Database connection string
+- `API_KEY` - External API key
+- `JWT_SECRET` - JWT signing secret
+
+## Known Issues / Gotchas
+
+- [Document any quirks or known issues]
+- [e.g., Auth tokens expire after 1 hour, refresh needed]
+- [e.g., Legacy endpoint /api/v1/users is deprecated]
+
+## Contact
+
+- Team: [team name or slack channel]
+- Documentation: [link to docs]

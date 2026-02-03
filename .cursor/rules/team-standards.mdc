@@ -1,0 +1,48 @@
+---
+description: Team coding standards and conventions for AI-assisted development
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Team Coding Standards
+
+## Code Quality
+
+- Write self-documenting code with clear naming
+- Keep functions focused and small (under 30 lines preferred)
+- Use meaningful variable names (avoid single letters except in loops)
+- Add comments only when the "why" isn't obvious from the code
+
+## Documentation
+
+- All public APIs should have documentation
+- Use JSDoc/docstrings for functions with complex parameters
+- Keep README files up to date
+- Include examples in documentation
+
+## Error Handling
+
+- Handle errors explicitly, don't swallow exceptions
+- Provide meaningful error messages
+- Log errors with sufficient context for debugging
+- Use appropriate error types/codes
+
+## Testing
+
+- Write tests for new functionality
+- Follow the Arrange-Act-Assert pattern
+- Use descriptive test names
+- Mock external dependencies
+
+## Git Practices
+
+- Write clear, descriptive commit messages
+- Keep commits focused and atomic
+- Reference issue numbers in commits when applicable
+
+## Security
+
+- Never commit secrets or credentials
+- Validate all external inputs
+- Use parameterized queries
+- Follow principle of least privilege
