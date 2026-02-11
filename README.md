@@ -1,119 +1,134 @@
-# AI Tools Onboarding Guide
+# AI Coding Handbook
 
-A comprehensive guide for software engineering teams to efficiently use AI coding assistants including **Claude Code**, **GitHub Copilot**, and **Cursor**.
+A comprehensive guide for software engineering teams to effectively use AI coding assistants including **Claude Code**, **GitHub Copilot**, **Cursor**, and other emerging tools.
 
 ## Quick Start
 
-| Tool | Setup Guide | Config File |
-|------|-------------|-------------|
-| Claude Code | [Setup Guide](docs/getting-started/claude-code-setup.md) | `CLAUDE.md` |
-| GitHub Copilot | [Setup Guide](docs/getting-started/copilot-setup.md) | `.github/copilot-instructions.md` |
-| Cursor | [Setup Guide](docs/getting-started/cursor-setup.md) | `.cursor/rules/*.mdc` |
+| Tool | Best For | Setup |
+|------|----------|-------|
+| **Claude Code** | Terminal workflows, multi-file changes, complex reasoning | [Setup Guide](01-getting-started/claude-code-setup.md) |
+| **GitHub Copilot** | IDE integration, quick autocomplete, inline suggestions | [Setup Guide](01-getting-started/copilot-setup.md) |
+| **Cursor** | Full IDE experience, codebase-aware, visual workflows | [Setup Guide](01-getting-started/cursor-setup.md) |
+
+**Not sure which to use?** See [Choosing Your Tool](01-getting-started/choosing-your-tool.md)
+
+## Contents
+
+### 1. Getting Started
+- [Choosing Your Tool](01-getting-started/choosing-your-tool.md) - Decision framework
+- [Claude Code Setup](01-getting-started/claude-code-setup.md)
+- [Cursor Setup](01-getting-started/cursor-setup.md)
+- [GitHub Copilot Setup](01-getting-started/copilot-setup.md)
+- [Other Tools](01-getting-started/other-tools.md) - Windsurf, Codex CLI, Aider
+
+### 2. Rules & Memory
+- [Overview](02-rules-and-memory/overview.md) - Why rules matter
+- [AGENTS.md Standard](02-rules-and-memory/agents-md-standard.md) - Universal AI config
+- [Claude Code Memory](02-rules-and-memory/claude-code-memory.md) - CLAUDE.md deep dive
+- [Cursor Rules](02-rules-and-memory/cursor-rules.md) - .mdc configuration
+- [Copilot Instructions](02-rules-and-memory/copilot-instructions.md)
+- [Cross-Tool Strategy](02-rules-and-memory/cross-tool-strategy.md)
+
+### 3. MCP Servers
+- [What is MCP?](03-mcp-servers/what-is-mcp.md) - Model Context Protocol
+- [Setup Guide](03-mcp-servers/setup-guide.md) - Configuration
+- [Popular Servers](03-mcp-servers/popular-servers.md) - GitHub, Slack, databases
+
+### 4. Prompting
+- [Prompting Principles](04-prompting/prompting-principles.md)
+- [Prompt Patterns](04-prompting/prompt-patterns.md) - Research-Plan-Implement
+- [Examples](04-prompting/examples/) - Good vs bad, real-world prompts
+
+### 5. Custom Commands & Skills
+- [Overview](05-custom-commands-and-skills/overview.md)
+- [Claude Code Skills](05-custom-commands-and-skills/claude-code-skills.md)
+- [Claude Code Plugins](05-custom-commands-and-skills/claude-code-plugins.md)
+- [Cursor Customization](05-custom-commands-and-skills/cursor-custom.md)
+- [Examples](05-custom-commands-and-skills/examples/) - Jira workflow, PR creation
+
+### 6. Browser Use
+- [Overview](06-browser-use/overview.md) - When AI uses the browser
+- [Cursor Browser](06-browser-use/cursor-browser.md)
+- [Claude Code Browser](06-browser-use/claude-code-browser.md)
+- [Playwright MCP](06-browser-use/playwright-mcp.md)
+
+### 7. Context Management
+- [Understanding Context](07-context-management/understanding-context.md)
+- [Managing Context](07-context-management/managing-context.md) - /clear, /compact
+- [Rules File Sizing](07-context-management/rules-file-sizing.md)
+- [Subagent Patterns](07-context-management/subagent-patterns.md)
+
+### 8. Workflow Tips
+- [Research-Plan-Implement](08-workflow-tips/research-plan-implement.md)
+- [Plan Mode](08-workflow-tips/plan-mode.md)
+- [Multi-Agent Patterns](08-workflow-tips/multi-agent.md)
+- [Testing with AI](08-workflow-tips/testing-with-ai.md)
+- [Permissions & Settings](08-workflow-tips/permissions-and-settings.md)
+- [Debugging Tips](08-workflow-tips/debugging-tips.md)
+
+### 9. Philosophy
+- [The Big Shift](09-philosophy/the-big-shift.md) - Deterministic to non-deterministic
+- [Review Your Code](09-philosophy/review-your-code.md)
+- [Learning, Not Outsourcing](09-philosophy/learning-not-outsourcing.md)
+- [Team Adoption](09-philosophy/team-adoption.md)
+
+### Resources
+- [Glossary](resources/glossary.md) - AI coding terminology
+- [Official Links](resources/official-links.md) - Documentation, downloads
+- [Community](resources/community.md) - Forums, Discord, learning
 
 ## Repository Structure
 
 ```
-ai-tools-onboarding/
-├── README.md                          # This file
-├── CLAUDE.md                          # Claude Code project instructions
-├── .github/
-│   └── copilot-instructions.md        # GitHub Copilot custom instructions
-├── .cursor/
-│   └── rules/
-│       └── team-standards.mdc         # Cursor AI rules
-│
-├── docs/
-│   ├── getting-started/               # Tool setup guides
-│   ├── best-practices/                # Prompting, safety, workflows
-│   ├── workflows/                     # Task-specific guides
-│   └── reference/                     # Prompts library, troubleshooting
-│
-├── .claude/
-│   ├── commands/                      # Custom slash commands
-│   └── skills/                        # Domain-specific skills
-│
-├── examples/
-│   └── prompts/                       # Real-world prompt examples
-│
-└── templates/                         # Templates for new projects
+ai-coding-handbook/
+├── 01-getting-started/       # Tool setup and selection
+├── 02-rules-and-memory/      # Configuration files
+├── 03-mcp-servers/           # External integrations
+├── 04-prompting/             # Effective prompting
+├── 05-custom-commands-and-skills/  # Extending tools
+├── 06-browser-use/           # Browser automation
+├── 07-context-management/    # Context optimization
+├── 08-workflow-tips/         # Development workflows
+├── 09-philosophy/            # Mindset and approach
+├── resources/                # Links and glossary
+├── .claude/                  # Claude Code config (commands, skills)
+├── .cursor/                  # Cursor rules
+└── .github/                  # Copilot instructions
 ```
-
-## Tool Selection Guide
-
-Choose the right tool for the task:
-
-| Task | Recommended Tool | Reason |
-|------|------------------|--------|
-| Quick inline completions | **Copilot** | Lowest friction, always-on autocomplete |
-| Complex multi-file refactoring | **Claude Code** | Superior reasoning, terminal-native |
-| Large codebase exploration | **Cursor** | Deep codebase indexing and awareness |
-| Debugging complex issues | **Claude Code** or **Cursor** | Strong context + explanation |
-| Code review | **Claude Code** | `/review-pr` skill, detailed analysis |
-| Learning unfamiliar code | **Any** | All support conversational Q&A |
-| Architecture planning | **Claude Code** | Plan mode, structured thinking |
-| Rapid prototyping | **Cursor** | Composer mode, visual feedback |
-
-## Documentation
-
-### Getting Started
-- [Claude Code Setup](docs/getting-started/claude-code-setup.md)
-- [Claude Code Plugins](docs/getting-started/claude-code-plugins.md) - Official marketplace & popular plugins
-- [GitHub Copilot Setup](docs/getting-started/copilot-setup.md)
-- [Cursor Setup](docs/getting-started/cursor-setup.md)
-
-### Best Practices
-- [Prompting Guide](docs/best-practices/prompting-guide.md) - Write effective prompts
-- [When to Use Which Tool](docs/best-practices/when-to-use-which-tool.md) - Tool selection strategies
-- [Code Review with AI](docs/best-practices/code-review-with-ai.md)
-- [Safety and Security](docs/best-practices/safety-and-security.md)
-
-### Workflows
-- [Feature Development](docs/workflows/feature-development.md)
-- [Bug Fixing](docs/workflows/bug-fixing.md)
-- [Code Review](docs/workflows/code-review.md)
-- [Refactoring](docs/workflows/refactoring.md)
-
-### Reference
-- [Sample Prompts Library](docs/reference/sample-prompts.md)
-- [Troubleshooting](docs/reference/troubleshooting.md)
-- [Resources & References](docs/reference/resources.md)
-
-## Popular Claude Code Plugins
-
-Install these from the [official Anthropic plugin marketplace](https://claude.com/plugins):
-
-| Plugin | Description | Install |
-|--------|-------------|---------|
-| **Frontend Design** (141k+) | Production-grade UI with distinctive design | `/plugin install frontend-design@claude-plugins-official` |
-| **Code Review** (68k+) | Multi-agent PR review with confidence scoring | `/plugin install code-review@claude-plugins-official` |
-| **Feature Dev** (63k+) | Guided feature development with exploration | `/plugin install feature-dev@claude-plugins-official` |
-| **Superpowers** | TDD methodology, debugging, brainstorming | `/plugin marketplace add obra/superpowers-marketplace` |
-| **TDG** | Test-Driven Generation (Red-Green-Refactor) | `/plugin install tdg@claude-plugins-official` |
-
-See [Claude Code Plugins Guide](docs/getting-started/claude-code-plugins.md) for full details.
 
 ## Key Principles
 
-1. **AI as a collaborator, not replacement** - Review all generated code critically
-2. **Context is king** - Better context = better suggestions
-3. **Use the right tool** - Each tool has strengths; leverage them
-4. **Safety first** - Never commit secrets, always review security implications
-5. **Iterate and learn** - Refine prompts based on results
+1. **AI as collaborator** - Review all generated code critically
+2. **Context is king** - Better context = better results
+3. **Use the right tool** - Each tool has strengths
+4. **Safety first** - Never commit secrets, always review security
+5. **Learn, don't outsource** - Understand what AI generates
 
-## Configuration Templates
+## Popular Plugins
 
-Copy these templates to your projects:
+Install these essential Claude Code plugins:
 
-- [`templates/CLAUDE.md.template`](templates/CLAUDE.md.template) - Claude Code project config
-- [`templates/copilot-instructions.template`](templates/copilot-instructions.template) - GitHub Copilot instructions
-- [`templates/cursorrules.template`](templates/cursorrules.template) - Cursor rules
+```bash
+# Frontend design (141k+ installs)
+/plugin install frontend-design@claude-plugins-official
+
+# Code review (68k+ installs)
+/plugin install code-review@claude-plugins-official
+
+# Feature development (63k+ installs)
+/plugin install feature-dev@claude-plugins-official
+```
+
+See [Claude Code Plugins](05-custom-commands-and-skills/claude-code-plugins.md) for full details.
 
 ## Contributing
 
-1. Share effective prompts in `examples/prompts/`
-2. Document learnings in relevant guides
-3. Update troubleshooting when you solve issues
-4. Propose new custom commands or skills
+1. Share effective prompts and configurations
+2. Document learnings and workflows
+3. Update guides with new tool features
+4. Report issues and improvements
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
@@ -121,5 +136,4 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
-**Maintained by**: Engineering Team
 **Last Updated**: February 2026

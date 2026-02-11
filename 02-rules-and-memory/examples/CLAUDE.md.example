@@ -1,0 +1,64 @@
+# CLAUDE.md
+
+Strictly follow @AGENTS.md for all project conventions and guidelines.
+
+## Claude Code Workflows
+
+### For Features
+1. Use `/plan` to design the approach
+2. Implement in small, testable chunks
+3. Run tests after each change: `npm test`
+4. Use `/commit` when ready
+
+### For Bug Fixes
+1. Reproduce the issue first
+2. Write a failing test
+3. Implement the fix
+4. Verify test passes
+5. Check for similar issues elsewhere
+
+### For Refactoring
+1. Ensure tests exist for current behavior
+2. Make incremental changes
+3. Run tests after each change
+4. Keep commits focused
+
+## Commands & Skills
+
+### Available Commands
+- `/commit` - Create a well-formatted commit
+- `/review-pr [number]` - Review a pull request
+- `/plan [description]` - Plan a feature or change
+- `/test` - Run relevant tests
+
+### Custom Skills
+- `@api-development` - REST API patterns and conventions
+
+## Permissions
+
+### Allowed
+- `npm test`, `npm run test:*`
+- `npm run lint`, `npm run typecheck`
+- `git diff`, `git status`, `git log`
+- `npm run dev:*`
+
+### Blocked
+- `npm publish`
+- `git push --force`
+- `rm -rf`
+- Database destructive commands
+
+## Project-Specific Notes
+
+### Key Files
+- `apps/web/src/App.tsx` - Frontend entry point
+- `apps/api/src/index.ts` - API entry point
+- `packages/shared/src/types.ts` - Shared type definitions
+
+### Active Development Areas
+- User authentication (apps/api/src/auth/)
+- Dashboard components (apps/web/src/features/dashboard/)
+
+### Known Issues
+- Rate limiting not yet implemented on /api/search
+- E2E tests flaky on CI (timing issues)

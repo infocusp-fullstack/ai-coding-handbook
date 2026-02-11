@@ -1,0 +1,120 @@
+# AGENTS.md
+
+## Overview
+
+Task management web application with React frontend and Node.js API.
+
+## Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite, TanStack Query, Tailwind CSS
+- **Backend**: Node.js 20, Express, TypeScript
+- **Database**: PostgreSQL 15 with Prisma ORM
+- **Testing**: Jest, React Testing Library, Supertest
+- **CI/CD**: GitHub Actions
+
+## Architecture
+
+```
+├── apps/
+│   ├── web/          # React frontend
+│   └── api/          # Express backend
+├── packages/
+│   └── shared/       # Shared types and utilities
+└── infrastructure/   # Docker, Terraform
+```
+
+## Code Conventions
+
+### TypeScript
+- Strict mode enabled
+- No `any` type - use `unknown` if truly unknown
+- Explicit return types on exported functions
+- Prefer interfaces over type aliases for objects
+
+### Naming
+- Variables/functions: camelCase
+- Components/classes: PascalCase
+- Constants: UPPER_SNAKE_CASE
+- Files: kebab-case.ts
+
+### Imports
+- Absolute imports from @/ (per app)
+- Group: external → internal → relative
+- Sort alphabetically within groups
+
+### React
+- Functional components only
+- Named exports (no default exports)
+- Co-locate types, tests, and styles with components
+- Use custom hooks for complex state logic
+
+## API Conventions
+
+### Response Format
+```json
+{
+  "success": true,
+  "data": { ... },
+  "meta": { "page": 1, "total": 100 }
+}
+```
+
+### Error Format
+```json
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Email is required",
+    "details": { "field": "email" }
+  }
+}
+```
+
+### Status Codes
+- 200: Success (GET, PUT, PATCH)
+- 201: Created (POST)
+- 204: No Content (DELETE)
+- 400: Validation Error
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not Found
+- 500: Server Error
+
+## Commands
+
+### Development
+- `npm run dev` - Start all services
+- `npm run dev:web` - Start frontend only
+- `npm run dev:api` - Start backend only
+
+### Testing
+- `npm test` - Run all tests
+- `npm run test:web` - Frontend tests
+- `npm run test:api` - Backend tests
+- `npm run test:e2e` - End-to-end tests
+
+### Build & Deploy
+- `npm run build` - Build all packages
+- `npm run lint` - Lint all code
+- `npm run typecheck` - TypeScript check
+- `npm run db:migrate` - Run migrations
+- `npm run db:seed` - Seed database
+
+## Security Requirements
+
+- Validate ALL input with Zod schemas
+- Use parameterized queries only (Prisma handles this)
+- Never log sensitive data (passwords, tokens, PII)
+- Auth required on all routes except /api/public/*
+- Rate limit: 100 requests/minute per IP
+- CORS configured for allowed origins only
+
+## Testing Standards
+
+- Unit tests for all utility functions
+- Component tests for user interactions
+- API tests for all endpoints
+- E2E tests for critical user journeys
+- Minimum 80% coverage for new code
+- No skipped tests in main branch

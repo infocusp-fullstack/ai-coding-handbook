@@ -1,0 +1,99 @@
+# Copilot Instructions
+
+Follow the project conventions defined in AGENTS.md in the repository root.
+
+## Code Generation Guidelines
+
+### TypeScript
+- Always use TypeScript strict mode
+- Add explicit return types to functions
+- Use interfaces for object type definitions
+- Avoid `any` - use `unknown` when type is uncertain
+
+### React Components
+- Use functional components with hooks
+- Export named functions, not default exports
+- Define Props interface above component
+- Co-locate types with components
+
+### Example Component Pattern
+```typescript
+interface ButtonProps {
+  label: string;
+  variant?: 'primary' | 'secondary';
+  onClick?: () => void;
+}
+
+export function Button({ label, variant = 'primary', onClick }: ButtonProps) {
+  return (
+    <button
+      className={`btn btn-${variant}`}
+      onClick={onClick}
+    >
+      {label}
+    </button>
+  );
+}
+```
+
+## API Development
+
+### Response Format
+Always return consistent API responses:
+```typescript
+// Success
+{ success: true, data: T }
+
+// Error
+{ success: false, error: { code: string, message: string } }
+```
+
+### Validation
+Use Zod for all input validation:
+```typescript
+const schema = z.object({
+  email: z.string().email(),
+  name: z.string().min(2),
+});
+```
+
+## Documentation
+
+### JSDoc Comments
+Add JSDoc to all exported functions:
+```typescript
+/**
+ * Fetches user by ID from the database.
+ * @param id - The user's unique identifier
+ * @returns The user object or null if not found
+ * @throws {NotFoundError} If user doesn't exist
+ */
+export async function getUser(id: string): Promise<User | null> {
+  // ...
+}
+```
+
+## Testing
+
+### Test Structure
+```typescript
+describe('ComponentName', () => {
+  it('should render correctly', () => {
+    // Arrange
+    const props = { title: 'Test' };
+
+    // Act
+    render(<Component {...props} />);
+
+    // Assert
+    expect(screen.getByText('Test')).toBeInTheDocument();
+  });
+});
+```
+
+## Security Reminders
+
+- Never hardcode secrets or API keys
+- Always validate and sanitize user input
+- Use parameterized queries for database access
+- Log errors without exposing sensitive data

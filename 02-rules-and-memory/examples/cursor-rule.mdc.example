@@ -1,0 +1,64 @@
+---
+description: Project conventions and coding standards
+alwaysApply: true
+---
+
+# Project Conventions
+
+Follow all conventions defined in @AGENTS.md.
+
+## Cursor-Specific
+
+### Composer Usage
+- Use Composer (Cmd/Ctrl+I) for multi-file changes
+- Review all proposed changes before accepting
+- Accept/reject changes per file when appropriate
+
+### Context References
+- Use `@codebase` for project-wide questions
+- Use `@filename` for specific file context
+- Use `@docs` to reference documentation
+
+### Inline Editing
+- Use Cmd/Ctrl+K for quick inline changes
+- Be specific about the change needed
+- Review diff before accepting
+
+## Code Style Reminders
+
+### TypeScript
+- Strict mode - no `any` types
+- Explicit return types on exported functions
+- Use interfaces for object shapes
+
+### React Components
+```typescript
+// Component structure
+interface Props {
+  title: string;
+  onAction?: () => void;
+}
+
+export function MyComponent({ title, onAction }: Props) {
+  return <div>{title}</div>;
+}
+```
+
+### Error Handling
+```typescript
+// API calls
+try {
+  const result = await api.fetchData();
+  return { success: true, data: result };
+} catch (error) {
+  logger.error('Failed to fetch data', { error });
+  throw new ApiError(500, 'Failed to fetch data');
+}
+```
+
+## Testing Conventions
+
+- Tests live next to implementation
+- Name: `component-name.test.tsx`
+- Use React Testing Library
+- Test behavior, not implementation
