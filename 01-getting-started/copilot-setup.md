@@ -12,9 +12,9 @@
 GitHub Copilot is an AI pair programmer that provides:
 
 - **Inline code completions** - Suggestions as you type
-- **Copilot Chat** - Conversational AI in your editor
-- **Copilot Edits** - Multi-file editing capabilities
-- **Copilot Agent** - Autonomous task execution (Enterprise)
+- **Copilot Chat** - Conversational AI in your editor with multiple modes (Ask, Edit, Agent, Plan)
+- **Agent mode** - Autonomous task execution with self-healing capabilities
+- **Copilot coding agent** - GitHub Actions-powered agent that works on issues and creates PRs
 
 ## Installation
 
@@ -23,9 +23,7 @@ GitHub Copilot is an AI pair programmer that provides:
 1. Open VS Code
 2. Go to Extensions (Ctrl+Shift+X)
 3. Search for "GitHub Copilot"
-4. Install both:
-   - **GitHub Copilot** - Code completions
-   - **GitHub Copilot Chat** - Chat interface
+4. Install **GitHub Copilot** extension (includes Chat, Agent mode, and completions)
 
 ### JetBrains IDEs
 
@@ -73,16 +71,28 @@ def calculate_fibonacci(n):
 | Next suggestion | `Alt+]` |
 | Previous suggestion | `Alt+[` |
 | Accept word | `Ctrl+Right` |
+| Open Chat view | `Ctrl+Alt+I` |
+| Inline chat | `Ctrl+I` |
+| New chat session | `Ctrl+N` |
 
 ### Copilot Chat
 
-Open with `Ctrl+Shift+I` (VS Code) and ask questions:
+Open with `Ctrl+Alt+I` (VS Code) and ask questions:
 
 ```
 > Explain this function
 > How do I add error handling here?
 > Write tests for the selected code
 ```
+
+### Chat Modes
+
+| Mode | Description |
+|------|-------------|
+| **Ask** | Get answers to coding questions and suggestions |
+| **Edit** | Controlled edits to multiple files |
+| **Agent** | Autonomous task completion with terminal access |
+| **Plan** | Create detailed implementation plans before coding |
 
 ### Chat Participants
 
@@ -103,7 +113,8 @@ Use `@` to invoke specialized agents:
 | `/fix` | Suggest fixes for problems |
 | `/tests` | Generate unit tests |
 | `/doc` | Add documentation |
-| `/simplify` | Simplify complex code |
+| `/new` | Scaffold a new project |
+| `/newNotebook` | Create a new Jupyter notebook |
 
 ## Custom Instructions
 
@@ -219,9 +230,9 @@ Always review before accepting:
     "markdown": false,
     "plaintext": false
   },
-  "github.copilot.advanced": {
-    "inlineSuggestCount": 3
-  }
+  "chat.agent.enabled": true,
+  "github.copilot.chat.agent.runTasks": true,
+  "github.copilot.chat.agent.autoFix": true
 }
 ```
 
@@ -238,25 +249,26 @@ Add to `.gitignore`-style file `.github/copilot-ignore`:
 
 ## Troubleshooting
 
-### No Suggestions Appearing
+### "No suggestions appearing"
 
 1. Check Copilot status in bottom-right of VS Code
 2. Verify authentication: `GitHub Copilot: Sign Out` then sign back in
 3. Check if file type is enabled in settings
 4. Ensure you have an active Copilot subscription
 
-### Suggestions Are Poor Quality
+### "Suggestions are poor quality"
 
 1. Add custom instructions in `.github/copilot-instructions.md`
 2. Open related files for context
 3. Write better comments describing intent
 4. Use more descriptive variable/function names
 
-### Copilot Chat Not Working
+### "Copilot Chat not working"
 
-1. Ensure you have Copilot Chat extension installed
-2. Check you have Copilot Chat access (included in most plans)
+1. Ensure GitHub Copilot extension is installed and up to date
+2. Check you have an active Copilot subscription
 3. Try reloading VS Code window
+4. Verify agent mode is enabled in settings if using Agent mode
 
 ## Resources
 

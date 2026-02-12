@@ -171,35 +171,6 @@ alwaysApply: true
 [Security requirements]
 ```
 
-## Training Program
-
-### Session 1: Introduction (1 hour)
-
-- What AI coding tools do
-- Tool options and team choice
-- Basic prompting
-- Hands-on: First task with AI
-
-### Session 2: Effective Usage (1 hour)
-
-- Prompting strategies
-- Context management
-- Review practices
-- Hands-on: Feature implementation
-
-### Session 3: Integration (1 hour)
-
-- Team configurations
-- Workflow integration
-- Custom commands
-- Hands-on: Configure project
-
-### Ongoing: Knowledge Sharing
-
-- Weekly: Share tips and tricks
-- Monthly: Review guidelines
-- Quarterly: Assess and improve
-
 ## Addressing Concerns
 
 ### "AI Will Replace Developers"

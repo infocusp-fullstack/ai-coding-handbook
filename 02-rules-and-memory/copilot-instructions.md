@@ -131,11 +131,9 @@ E-commerce platform built with Next.js, TypeScript, and PostgreSQL.
 - Aim for 80%+ coverage
 
 ### Test Naming
-```typescript
 describe('ComponentName', () => {
   it('should [expected behavior] when [condition]', () => {});
 });
-```
 
 ## Documentation
 
@@ -178,23 +176,8 @@ applyTo: "src/api/**"
 ## Response Format
 
 All API endpoints must return:
-
-```typescript
-// Success
-{
-  success: true,
-  data: T
-}
-
-// Error
-{
-  success: false,
-  error: {
-    code: 'ERROR_CODE',
-    message: 'User-friendly message'
-  }
-}
-```
+// Success: { success: true, data: T }
+// Error: { success: false, error: { code: 'ERROR_CODE', message: 'User-friendly message' } }
 
 ## Status Codes
 
@@ -210,21 +193,10 @@ All API endpoints must return:
 ## Validation
 
 Use Zod for all input validation:
-
-```typescript
-import { z } from 'zod';
-
 const createUserSchema = z.object({
   email: z.string().email(),
   name: z.string().min(2).max(50),
 });
-
-export async function POST(req: Request) {
-  const body = await req.json();
-  const validated = createUserSchema.parse(body);
-  // ...
-}
-```
 
 ## Authentication
 
@@ -246,28 +218,15 @@ applyTo: "**/*.test.ts"
 
 ## Structure
 
-```typescript
-import { render, screen } from '@testing-library/react';
-import { ComponentName } from './ComponentName';
-
 describe('ComponentName', () => {
-  // Setup
-  beforeEach(() => {
-    // Reset mocks, set up common data
-  });
-
+  beforeEach(() => { /* Reset mocks */ });
   describe('rendering', () => {
     it('renders correctly with default props', () => {});
-    it('renders loading state', () => {});
-    it('renders error state', () => {});
   });
-
   describe('interactions', () => {
     it('calls onSubmit when form is submitted', () => {});
-    it('validates input on blur', () => {});
   });
 });
-```
 
 ## Assertions
 
@@ -275,28 +234,14 @@ describe('ComponentName', () => {
 - One concept per test
 - Test behavior, not implementation
 
-```typescript
-// Good
-expect(screen.getByRole('button')).toBeDisabled();
-
-// Avoid
-expect(button.disabled).toBe(true);
-```
+// Good: expect(screen.getByRole('button')).toBeDisabled();
+// Avoid: expect(button.disabled).toBe(true);
 
 ## Mocking
 
 - Mock external dependencies (API calls, DB)
 - Use realistic test data
 - Reset mocks in beforeEach
-
-```typescript
-jest.mock('@/lib/api');
-const mockApi = jest.mocked(api);
-
-beforeEach(() => {
-  mockApi.fetchUser.mockReset();
-});
-```
 ```
 
 ### Path-Specific: Components
@@ -312,49 +257,14 @@ applyTo: "src/components/**"
 
 ## File Structure
 
-```typescript
 // 1. Imports (external, then internal)
-import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils';
-
-// 2. Types
-interface Props {
-  title: string;
-  onAction?: () => void;
-}
-
-// 3. Component
-export function MyComponent({ title, onAction }: Props) {
-  // a. Hooks
-  const [state, setState] = useState();
-
-  // b. Derived state
-  const isValid = state !== null;
-
-  // c. Effects
-  useEffect(() => {}, []);
-
-  // d. Handlers
-  const handleClick = () => {};
-
-  // e. Render
-  return <div />;
-}
-```
+// 2. Types (interface Props { ... })
+// 3. Component with: a. Hooks, b. Derived state, c. Effects, d. Handlers, e. Render
 
 ## Styling
 
 Use Tailwind with cn() for conditional classes:
-
-```typescript
-<button
-  className={cn(
-    'px-4 py-2 rounded',
-    isActive && 'bg-blue-500 text-white',
-    isDisabled && 'opacity-50 cursor-not-allowed'
-  )}
->
-```
+className={cn('px-4 py-2 rounded', isActive && 'bg-blue-500')}
 
 ## Accessibility
 
@@ -396,7 +306,6 @@ Use Tailwind with cn() for conditional classes:
 ```markdown
 ## Error Handling
 
-```typescript
 // Good
 try {
   const user = await fetchUser(id);
@@ -405,7 +314,6 @@ try {
   logger.error('Failed to fetch user', { id, error });
   return { success: false, error: { code: 'FETCH_ERROR', message: 'Failed to fetch user' } };
 }
-```
 ```
 
 ### 3. Keep Instructions Focused

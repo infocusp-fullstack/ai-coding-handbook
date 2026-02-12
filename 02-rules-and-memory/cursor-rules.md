@@ -131,7 +131,6 @@ alwaysApply: false
 - Never use `any` - use `unknown` if type is truly unknown
 
 ## Patterns
-```typescript
 // Good
 interface User {
   id: string;
@@ -143,7 +142,6 @@ type User = {
   id: string;
   name: string;
 }
-```
 
 ## Null Handling
 - Use optional chaining: `user?.profile?.email`
@@ -164,20 +162,9 @@ alwaysApply: false
 
 ## Response Format
 All endpoints return:
-```json
-{
-  "success": true,
-  "data": { ... }
-}
+{ "success": true, "data": { ... } }
 // or
-{
-  "success": false,
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Email is required"
-  }
-}
-```
+{ "success": false, "error": { "code": "VALIDATION_ERROR", "message": "Email is required" } }
 
 ## Status Codes
 - 200: Success
@@ -211,7 +198,6 @@ alwaysApply: false
 - Follow AAA pattern: Arrange, Act, Assert
 
 ## Naming
-```typescript
 describe('UserService', () => {
   describe('createUser', () => {
     it('creates user with valid data', () => {});
@@ -219,7 +205,6 @@ describe('UserService', () => {
     it('handles duplicate email', () => {});
   });
 });
-```
 
 ## Mocking
 - Mock external dependencies (DB, APIs)
@@ -244,7 +229,6 @@ alwaysApply: false
 # React Components
 
 ## Structure
-```typescript
 // Imports
 import { useState } from 'react';
 import { Button } from '@/components/ui';
@@ -272,7 +256,6 @@ export function MyComponent({ title, onSubmit }: Props) {
     </div>
   );
 }
-```
 
 ## Patterns
 - Functional components only (no classes)
@@ -343,7 +326,6 @@ globs: ["src/api/**/*.ts", "src/routes/**/*.ts"]
 ```markdown
 ## Error Handling
 
-```typescript
 // Good
 try {
   const result = await api.fetchUser(id);
@@ -356,7 +338,6 @@ try {
 // Bad
 const result = await api.fetchUser(id);  // No error handling
 return result;
-```
 ```
 
 ### 5. Commit to Version Control

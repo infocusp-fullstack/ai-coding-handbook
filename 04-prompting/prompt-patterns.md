@@ -270,6 +270,12 @@ Or manually:
 
 Best for: Code improvement without behavior change
 
+**Tip**: Use the `code-simplifier` plugin for automated refactoring:
+```
+> /plugin install code-simplifier@claude-plugins-official
+> /code-simplifier src/utils/format.ts
+```
+
 ### Safe Refactoring
 
 ```

@@ -201,7 +201,6 @@ product listings, shopping cart, checkout, and order management.
 
 ## Architecture
 
-```
 src/
 ├── app/           # Next.js App Router pages
 ├── components/    # React components
@@ -213,7 +212,6 @@ src/
 │   └── api/       # API helpers
 ├── hooks/         # Custom React hooks
 └── types/         # TypeScript type definitions
-```
 
 ## Code Style
 
@@ -228,13 +226,8 @@ src/
 
 All API routes return consistent response format:
 
-```typescript
-// Success
-{ success: true, data: T }
-
-// Error
-{ success: false, error: { code: string, message: string } }
-```
+Success: { success: true, data: T }
+Error: { success: false, error: { code: string, message: string } }
 
 HTTP status codes:
 - 200: Success
@@ -246,13 +239,13 @@ HTTP status codes:
 
 ## Commands
 
-- `npm run dev` - Start development (localhost:3000)
-- `npm test` - Run unit tests
-- `npm run test:e2e` - Run Playwright tests
-- `npm run lint` - ESLint check
-- `npm run typecheck` - TypeScript check
-- `npm run db:migrate` - Run Prisma migrations
-- `npm run db:seed` - Seed test data
+- npm run dev - Start development (localhost:3000)
+- npm test - Run unit tests
+- npm run test:e2e - Run Playwright tests
+- npm run lint - ESLint check
+- npm run typecheck - TypeScript check
+- npm run db:migrate - Run Prisma migrations
+- npm run db:seed - Seed test data
 
 ## Security Requirements
 

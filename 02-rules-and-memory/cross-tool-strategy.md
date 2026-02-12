@@ -228,15 +228,19 @@ Only Claude-specific instructions here.
 ```
 monorepo/
 ├── AGENTS.md                # Shared conventions
-├── packages/
-│   ├── frontend/
-│   │   ├── AGENTS.md        # Frontend-specific
-│   │   ├── CLAUDE.md        # "Follow @../AGENTS.md and @AGENTS.md"
-│   │   └── .cursor/rules/
-│   └── backend/
-│       ├── AGENTS.md        # Backend-specific
-│       ├── CLAUDE.md
-│       └── .cursor/rules/
+├── CLAUDE.md                # "Follow @AGENTS.md"
+├── .cursor/
+│   └── rules/
+│       ├── general.mdc      # alwaysApply: true
+│       ├── frontend.mdc     # globs: ["packages/frontend/**"]
+│       └── backend.mdc      # globs: ["packages/backend/**"]
+├── .github/
+│   └── copilot-instructions.md
+└── packages/
+    ├── frontend/
+    │   └── AGENTS.md        # Frontend-specific additions
+    └── backend/
+        └── AGENTS.md        # Backend-specific additions
 ```
 
 ### Team with Tool Preferences

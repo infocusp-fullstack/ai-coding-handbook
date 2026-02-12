@@ -106,9 +106,7 @@ Each file is automatically loaded. Example `api-conventions.md`:
 
 ## Response Format
 All API endpoints return:
-```json
 { "success": boolean, "data"?: T, "error"?: { "code": string, "message": string } }
-```
 
 ## HTTP Status Codes
 - 200: Success
@@ -139,24 +137,42 @@ monorepo/
 │       └── CLAUDE.md          # Shared library rules
 ```
 
+## Viewing Loaded Context
+
+Use these commands to see what Claude has loaded:
+
+| Command | Description |
+|---------|-------------|
+| `/memory` | View loaded CLAUDE.md files and auto-memory |
+| `/context` | Show all loaded context files |
+| `Ctrl+O` | Expand and view recalled session memories |
+
 ## Auto-Memory (Claude's Memory for Itself)
 
-Claude Code can also maintain memory about your sessions.
+Auto-memory is a feature where Claude writes notes for itself based on what it discovers during sessions.
 
-**Location**: `~/.claude/projects/*/memory/`
+**Location**: `~/.claude/projects/<project>/memory/`
+
+The `<project>` path is derived from your git repository root, so all subdirectories share one memory directory.
 
 **What it stores:**
 - Patterns Claude discovered about your codebase
 - Corrections you've made
 - Preferences Claude learned
 
-**Commands:**
-- `/memory` - View and manage memory files
-- `/memory clear` - Clear session memory
+**How it loads:**
+- First 200 lines of MEMORY.md load automatically at session start
+- Content beyond 200 lines requires manual reference
+- You'll see "Recalled X memories" at session start when active
 
-**Opt-in setting** (may require):
+**Enable auto-memory** (if not seeing it):
 ```bash
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=0
+```
+
+**Disable auto-memory**:
+```bash
+export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
 ```
 
 ## /init Command

@@ -21,7 +21,6 @@ Claude Code is Anthropic's official CLI tool for agentic coding. It lives in you
 - Read and understand your entire codebase
 - Make multi-file edits
 - Run commands and tests
-- Create commits and PRs
 - Work autonomously on complex tasks
 
 ## Installation
@@ -59,12 +58,14 @@ cd /path/to/your/project
 claude
 ```
 
-### 3. Try Basic Commands
+### 3. Try Exploratory Commands
 
 ```
-> What files are in this project?
-> Explain the architecture of this codebase
-> Find all TODO comments
+> What design patterns are used in this codebase?
+> How is authentication handled end-to-end?
+> Explain how database migrations are managed
+> What testing patterns are followed here?
+> Trace how a request flows from API to database
 ```
 
 ## Key Concepts
