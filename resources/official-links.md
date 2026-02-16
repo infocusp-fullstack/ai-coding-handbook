@@ -59,8 +59,7 @@
 
 ### Documentation
 - [MCP Specification](https://modelcontextprotocol.io/) - Protocol spec
-- [MCP GitHub](https://github.com/anthropics/mcp) - Source code
-- [MCP Servers](https://github.com/anthropics/mcp-servers) - Official servers
+- [MCP GitHub](https://github.com/modelcontextprotocol/modelcontextprotocol) - Source code
 
 ### Server Registry
 - [MCP Server Directory](https://github.com/modelcontextprotocol/servers) - Community servers

@@ -72,7 +72,13 @@ claude
 
 ### CLAUDE.md File
 
-Create a `CLAUDE.md` file in your project root to give Claude context:
+The quickest way to create one is with the `/init` command — Claude will scan your codebase and generate a `CLAUDE.md` for you:
+
+```
+> /init
+```
+
+You can also create one manually for full control. See [Write an effective CLAUDE.md](https://code.claude.com/docs/en/best-practices#write-an-effective-claude-md) for detailed guidance.
 
 ```markdown
 # CLAUDE.md

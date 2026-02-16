@@ -21,8 +21,7 @@
 | **Multi-file editing** | Excellent | Good (Edits) | Excellent |
 | **Codebase awareness** | Good | Moderate | Excellent |
 | **Terminal integration** | Native | No | No |
-| **Git operations** | Excellent | Basic | Basic |
-| **IDE integration** | Terminal | Deep | Is the IDE |
+| **IDE integration** | Terminal-first ([VS Code](https://code.claude.com/docs/en/vs-code), [JetBrains](https://code.claude.com/docs/en/jetbrains)) | Deep | Is the IDE |
 | **Plan/think mode** | Yes | Yes | Yes |
 | **Custom commands** | Yes | Yes | Yes |
 | **Autonomous tasks** | Yes | Yes | Yes |
