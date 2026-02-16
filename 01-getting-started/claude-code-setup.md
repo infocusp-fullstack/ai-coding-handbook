@@ -3,8 +3,11 @@
 ## TL;DR
 
 ```bash
-# Install
-npm install -g @anthropic-ai/claude-code
+# Install (macOS/Linux/WSL)
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Install (Windows PowerShell)
+irm https://claude.ai/install.ps1 | iex
 
 # Authenticate
 claude login
@@ -23,18 +26,46 @@ Claude Code is Anthropic's official CLI tool for agentic coding. It lives in you
 - Run commands and tests
 - Work autonomously on complex tasks
 
+Claude Code is available on multiple surfaces:
+
+| Surface | Description |
+|---------|-------------|
+| **Terminal/CLI** | Full-featured CLI in your terminal |
+| **Desktop App** | Standalone app (Windows, Mac) with visual diffs |
+| **Web** | Run in browser at claude.ai/code |
+| **VS Code** | Extension with inline diffs and @-mentions |
+| **JetBrains** | Plugin for IntelliJ, PyCharm, WebStorm, etc. |
+| **Chrome** | Browser extension for testing web apps |
+
 ## Installation
 
 ### Prerequisites
 
-- Node.js 18+ installed
 - A Claude Pro, Team, or API account
 
-### Install via npm
+### Install via Native Installer
 
+**macOS/Linux/WSL:**
 ```bash
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+**Windows PowerShell:**
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+**Alternative: Homebrew (macOS)**
+```bash
+brew install --cask claude-code
+```
+
+**Alternative: WinGet (Windows)**
+```powershell
+winget install Anthropic.ClaudeCode
+```
+
+> **Note**: npm installation (`npm install -g @anthropic-ai/claude-code`) is deprecated. Use native installers for automatic updates.
 
 ### Authenticate
 
@@ -185,7 +216,7 @@ Configure Claude Code in `~/.claude/settings.json`:
 {
   "theme": "dark",
   "autoCommit": false,
-  "defaultModel": "claude-sonnet-4"
+  "defaultModel": "claude-sonnet-4-20250514"
 }
 ```
 
@@ -229,14 +260,16 @@ Extend Claude Code with official plugins from the [Anthropic Plugin Marketplace]
 
 # Install popular plugins
 /plugin install frontend-design@claude-plugins-official
+/plugin install context7@claude-plugins-official
 /plugin install code-review@claude-plugins-official
-/plugin install feature-dev@claude-plugins-official
 ```
 
 **Popular plugins:**
-- **Frontend Design** (141k+) - Production-grade UI development
-- **Code Review** (68k+) - Multi-agent PR review
-- **Feature Dev** (63k+) - Guided feature development
+- **Frontend Design** (160k+) - Production-grade UI development
+- **Context7** (104k+) - Live documentation lookup
+- **Code Review** (79k+) - Multi-agent PR review
+- **GitHub** (74k+) - Repository management
+- **Feature Dev** (71k+) - Guided feature development
 - **Superpowers** - TDD methodology and debugging skills
 
 See the full [Claude Code Plugins Guide](../05-custom-commands-and-skills/claude-code-plugins.md) for detailed installation and usage.

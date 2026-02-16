@@ -7,6 +7,10 @@
 - [Claude Code GitHub](https://github.com/anthropics/claude-code) - CLI source and issues
 - [Claude API Reference](https://docs.anthropic.com/en/api) - API documentation
 
+### CI/CD Integration
+- [Claude Code GitHub Actions](https://code.claude.com/docs/en/github-actions) - Official CI/CD guide
+- [Claude Code Action Repository](https://github.com/anthropics/claude-code-action) - Action source code
+
 ### Resources
 - [Anthropic Console](https://console.anthropic.com/) - API keys and usage
 - [Claude.ai](https://claude.ai/) - Web interface
@@ -24,6 +28,7 @@
 - [Copilot Documentation](https://docs.github.com/en/copilot) - Official docs
 - [Copilot for Business](https://docs.github.com/en/copilot/overview-of-github-copilot/about-github-copilot-business) - Enterprise features
 - [Copilot CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli) - Terminal integration
+- [Copilot Coding Agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) - Agent automation
 
 ### Extensions
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - Main extension

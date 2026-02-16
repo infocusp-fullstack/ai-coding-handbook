@@ -109,14 +109,14 @@ ai-coding-handbook/
 Install these essential Claude Code plugins:
 
 ```bash
-# Frontend design (141k+ installs)
+# Frontend design (160k+ installs)
 /plugin install frontend-design@claude-plugins-official
 
-# Code review (68k+ installs)
-/plugin install code-review@claude-plugins-official
+# Context7 for live documentation (104k+ installs)
+/plugin install context7@claude-plugins-official
 
-# Feature development (63k+ installs)
-/plugin install feature-dev@claude-plugins-official
+# Code review (79k+ installs)
+/plugin install code-review@claude-plugins-official
 ```
 
 See [Claude Code Plugins](05-custom-commands-and-skills/claude-code-plugins.md) for full details.

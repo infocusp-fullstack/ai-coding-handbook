@@ -2,6 +2,61 @@
 
 Beyond Claude Code, Cursor, and GitHub Copilot, several other tools are worth knowing about.
 
+## OpenCode
+
+**What it is**: Open-source AI coding assistant with advanced agentic capabilities and local-first architecture.
+
+**Best for**: Developers wanting a privacy-focused, locally-run AI coding assistant with powerful agent features.
+
+### Key Features
+
+- Local-first architecture (you can use locally running models as well if you configure)
+- Advanced agentic capabilities with tool use
+- Multi-file editing and refactoring
+- Terminal integration
+- Codebase-aware context
+- Git operations integration
+
+### Setup
+
+```bash
+# Install via npm
+npm install -g @opencode/cli
+
+# Or download from GitHub releases
+# https://github.com/opencode-ai/opencode/releases
+
+# Start using
+opencode
+```
+
+### Configuration
+
+Create `.opencode/config.json`:
+
+```json
+{
+  "model": "claude-3-5-sonnet",
+  "apiKey": "your-anthropic-key",
+  "autoApprove": ["Read", "Edit", "Bash(git *)"]
+}
+```
+
+### Why Choose OpenCode
+
+- **Privacy-first**: Local execution, code never leaves your machine
+- **Agentic workflows**: Advanced task planning and execution
+- **Cost-effective**: Use your own API keys or local models
+- **Open-source**: Transparent and community-driven
+
+### Pricing
+
+- Free (open-source)
+- Pay for API usage if using cloud models
+- You may get some free models usage as well, BEWARE that free models save your data on their system
+
+---
+
 ## Windsurf (Codeium)
 
 **What it is**: AI-native IDE built by Codeium, similar to Cursor.
@@ -95,95 +150,13 @@ gemini
 
 ---
 
-## Aider
+## Other Notable Tools
 
-**What it is**: Open-source AI pair programming tool for the terminal.
+Quick links to other tools in the ecosystem:
 
-**Best for**: Developers wanting maximum control and customization.
-
-### Key Features
-
-- Open-source and self-hostable
-- Works with multiple LLM providers (OpenAI, Anthropic, local models)
-- Git-aware with automatic commits
-- Voice coding support
-- AGENTS.md support
-
-### Setup
-
-```bash
-# Install
-pip install aider-chat
-
-# With OpenAI
-export OPENAI_API_KEY=your-key
-aider
-
-# With Anthropic
-export ANTHROPIC_API_KEY=your-key
-aider --model claude-3-5-sonnet
-
-# With local models (Ollama)
-aider --model ollama/codellama
-```
-
-### Why Choose Aider
-
-- **Cost control**: Use your own API keys
-- **Model flexibility**: Switch providers easily
-- **Privacy**: Can run with local models
-- **Transparency**: Open-source, auditable
-
-### Pricing
-
-- Free (open-source)
-- Pay for API usage to your chosen provider
-
----
-
-## Continue
-
-**What it is**: Open-source AI code assistant that integrates with VS Code and JetBrains.
-
-**Best for**: Developers wanting Copilot-like features with more control.
-
-### Key Features
-
-- VS Code and JetBrains extensions
-- Multiple model support (OpenAI, Anthropic, local)
-- Customizable with config files
-- Context providers (codebase, docs, web)
-- Slash commands
-
-### Setup
-
-1. Install extension from VS Code marketplace
-2. Configure `~/.continue/config.json`:
-
-```json
-{
-  "models": [
-    {
-      "title": "Claude",
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet",
-      "apiKey": "your-key"
-    }
-  ]
-}
-```
-
-### Why Choose Continue
-
-- **Open-source**: Community-driven development
-- **Provider flexibility**: Not locked to one vendor
-- **Customization**: Extensive configuration options
-- **Privacy**: Can use local models
-
-### Pricing
-
-- Free (open-source)
-- Pay for API usage to your chosen provider
+- **[Aider](https://aider.chat/)** - Open-source AI pair programming for terminal
+- **[Continue](https://continue.dev/)** - Open-source AI assistant for VS Code/JetBrains
+- **[Antigravity](https://antigravity.ai/)** - AI coding assistant with unique approach
 
 ---
 
@@ -191,13 +164,19 @@ aider --model ollama/codellama
 
 | Tool | Type | Models | Open Source | Best For |
 |------|------|--------|-------------|----------|
+| **OpenCode** | CLI | Any (Claude, GPT, local) | Yes | Privacy-focused, agentic workflows |
 | **Windsurf** | IDE | Codeium + others | No | Cursor alternative |
-| **Codex CLI** | CLI | OpenAI | No | OpenAI users |
-| **Gemini CLI** | CLI | Gemini | No | Google Cloud users |
-| **Aider** | CLI | Any (OpenAI, Anthropic, local) | Yes | Maximum flexibility |
-| **Continue** | Extension | Any (OpenAI, Anthropic, local) | Yes | VS Code customization |
+| **Codex CLI** | CLI | OpenAI | No | OpenAI ecosystem |
+| **Gemini CLI** | CLI | Gemini | No | Google Cloud integration |
+| **Aider** | CLI | Any | Yes | Terminal flexibility |
+| **Continue** | Extension | Any | Yes | VS Code customization |
 
 ## When to Consider Alternatives
+
+### Choose OpenCode when:
+- Privacy is a top concern (local-first)
+- You want advanced agentic capabilities
+- You prefer open-source with modern architecture
 
 ### Choose Windsurf when:
 - You want a Cursor-like experience with different pricing
@@ -217,23 +196,20 @@ aider --model ollama/codellama
 ### Choose Aider when:
 - You want maximum control over AI providers
 - You need to use local models for privacy
-- You want open-source transparency
-- You're cost-conscious with API usage
+- You want established open-source tooling
 
 ### Choose Continue when:
 - You want Copilot-like features in VS Code
 - You need to use multiple model providers
-- You want extensive customization
-- You prefer open-source tools
+- You want IDE extension approach
 
 ## Using Multiple Tools
 
 Many developers use different tools for different purposes:
 
 ```
-Primary workflow: Claude Code or Cursor
+Primary workflow: Claude Code, Opencode or Cursor
 Inline completions: Copilot or Continue
-Experimentation: Aider (try different models)
 Specific integrations: Platform-specific tools
 ```
 

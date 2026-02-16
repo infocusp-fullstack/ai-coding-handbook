@@ -259,9 +259,9 @@ If rules exceed 500 lines, split into focused files:
 
 Choose models in settings:
 - **Claude Sonnet 4.5** - Fast, good for most tasks
-- **Claude Opus 4.6** - Best reasoning, complex tasks
-- **GPT-5.2** - OpenAI's flagship model
-- **Gemini 3 Pro** - Google's latest with strong reasoning
+- **Claude 4 Opus** - Best reasoning, complex tasks
+- **GPT-5.3** - OpenAI's latest model
+- **Gemini 3 Pro** - Google's latest with state-of-the-art reasoning
 
 ### Privacy Settings
 

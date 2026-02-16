@@ -370,4 +370,4 @@ Explorer → [Verify] → Architect → [Verify] → Implement
 
 ---
 
-Next: [Plan Mode](plan-mode.md) | [Testing with AI](testing-with-ai.md)
+Next: [Plan Mode](plan-mode.md) | [Testing with AI](testing-with-ai.md) | [CI/CD Integration](ci-cd-integration.md)

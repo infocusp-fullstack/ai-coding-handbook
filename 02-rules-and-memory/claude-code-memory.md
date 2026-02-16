@@ -151,29 +151,48 @@ Use these commands to see what Claude has loaded:
 
 Auto-memory is a feature where Claude writes notes for itself based on what it discovers during sessions.
 
-**Location**: `~/.claude/projects/<project>/memory/`
+### How It Works
+
+**Storage Location**: `~/.claude/projects/<project>/memory/`
 
 The `<project>` path is derived from your git repository root, so all subdirectories share one memory directory.
 
-**What it stores:**
+**The 200-Line Limit (Important!)**
+- **First 200 lines** → Loaded automatically in every session
+- **Only loads when relevant** → Claude decides if memory is related to current task
+
+**What It Stores:**
 - Patterns Claude discovered about your codebase
-- Corrections you've made
-- Preferences Claude learned
+- Corrections you've made to Claude
+- Preferences Claude learned about your style
+- Common mistakes and how to avoid them
+- Architecture decisions and their context
 
-**How it loads:**
-- First 200 lines of MEMORY.md load automatically at session start
-- Content beyond 200 lines requires manual reference
-- You'll see "Recalled X memories" at session start when active
-
-**Enable auto-memory** (if not seeing it):
+**How to Enable:**
 ```bash
+# Check current status
+> /memory
+
+# Enable if disabled
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=0
 ```
 
-**Disable auto-memory**:
+**How to Disable:**
 ```bash
 export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
 ```
+
+### Best Practices for Auto-Memory
+
+1. **Review and Curate**
+   - Check `/memory` periodically
+   - Remove outdated patterns
+   - Consolidate duplicate entries
+
+2. **Combine with CLAUDE.md**
+   - Use CLAUDE.md for project-wide rules
+   - Use auto-memory for discovered patterns
+   - Both work together for best results
 
 ## /init Command
 

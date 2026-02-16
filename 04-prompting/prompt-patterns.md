@@ -2,7 +2,13 @@
 
 ## TL;DR
 
-Proven patterns for common workflows:
+### Key Principles (Use These Always)
+
+1. **Ask Questions Early** - Include "ask clarifying questions before starting" to prevent excessive planning based on wrong assumptions
+
+2. **Use Parallel Sub-Agents** - Use multiple sub-agents to explore different areas simultaneously for faster results
+
+### Workflow Patterns
 
 | Workflow | Pattern |
 |----------|---------|
@@ -124,6 +130,66 @@ AI: "A few questions:
 > Now implement with these answers.
 ```
 
+## The Parallel Sub-Agent Pattern
+
+Best for: Multi-area exploration, speeding up research, keeping context clean
+
+### Why Use Parallel Sub-Agents?
+
+**Without Parallel Agents (Sequential)**:
+```
+Explore auth module      → 5 min, loads 20 files
+Explore API layer        → 5 min, loads 15 files
+Explore database         → 5 min, loads 10 files
+Total: 15 min, context full of 45 files
+```
+
+**With Parallel Agents**:
+```
+Launch 3 sub-agents simultaneously → 5 min total
+Receive 3 summaries (600 words total)
+Context stays clean, ready for implementation
+```
+
+### Common Use Cases
+
+**Understanding a Feature Across Layers**:
+```
+> Launch parallel subagents:
+> 1. Explore frontend components for user profile
+> 2. Explore API endpoints for user data
+> 3. Explore database schema for users
+>
+> Return: How these connect and key integration points
+```
+
+**Code Review**:
+```
+> Launch parallel subagents to review this PR:
+> 1. Check for security issues
+> 2. Check for performance problems
+> 3. Verify test coverage
+>
+> Return: Only critical findings (confidence > 80%)
+```
+
+**Research**:
+```
+> Research caching strategies by exploring:
+> 1. Current caching implementation in our codebase
+> 2. Best practices from popular open source projects
+> 3. Options compatible with our stack (Node + Redis)
+>
+> Return: Recommendations with pros/cons
+```
+
+### Best Practices
+
+1. **Be Specific About Scope**: "Explore auth module focusing on JWT implementation"
+2. **Limit Return Size**: "Return max 200 words per area"
+3. **Combine Results**: After getting summaries, ask for synthesis
+4. **Use for Isolated Tasks**: Don't use for interactive work that needs back-and-forth
+
 ## The Incremental Pattern
 
 Best for: Large changes, reducing risk
@@ -176,7 +242,28 @@ Best for: Consistent code, following existing patterns
 
 Best for: Understanding unfamiliar code
 
-### Use Subagents
+### Use Parallel Sub-Agents for Speed
+
+Instead of exploring sequentially, launch multiple sub-agents in parallel:
+
+```
+> Launch parallel subagents to explore:
+> 1. Authentication flow (src/auth/) - return key files and patterns
+> 2. Database schema (prisma/schema.prisma) - return entities and relationships
+> 3. API routes (src/api/) - return endpoints structure
+>
+> Each should return a brief summary in under 200 words.
+```
+
+Benefits:
+- 3x faster exploration
+- Main context stays clean (only summaries, not all files)
+- Can compare results across different areas
+- No context pollution from deep exploration
+
+### Single Area Exploration
+
+For focused exploration of one area:
 
 ```
 > Use an explore agent to understand src/services/payment/

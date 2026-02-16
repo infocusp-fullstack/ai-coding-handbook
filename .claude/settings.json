@@ -1,9 +1,51 @@
 {
   "permissions": {
     "allow": [
+      "Read",
+      "Edit",
+      "Bash(git status)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git branch *)",
+      "Bash(git checkout *)",
+      "Bash(git pull *)",
+      "Bash(git fetch *)",
+      "Bash(git merge *)",
+      "Bash(git stash *)",
+      "Bash(git worktree *)",
+      "Bash(git remote *)",
       "WebSearch",
       "WebFetch(domain:github.com)",
-      "Bash(tree:*)"
+      "Glob",
+      "Grep"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(rm -rf *)",
+      "Read(filePath:**/.env*)",
+      "Read(filePath:**/.env.local*)",
+      "Read(filePath:**/.env.production*)",
+      "Read(filePath:**/.env.development*)",
+      "Read(filePath:**/secrets/*)",
+      "Read(filePath:**/*.pem)",
+      "Read(filePath:**/*.key)",
+      "Read(filePath:**/credentials.json)",
+      "Read(filePath:**/service-account*.json)",
+      "Read(filePath:**/private-key*)",
+      "Edit(filePath:**/.env*)",
+      "Edit(filePath:**/.env.local*)",
+      "Edit(filePath:**/.env.production*)",
+      "Edit(filePath:**/.env.development*)",
+      "Edit(filePath:**/secrets/*)",
+      "Edit(filePath:**/*.pem)",
+      "Edit(filePath:**/*.key)",
+      "Edit(filePath:**/credentials.json)",
+      "Edit(filePath:**/service-account*.json)",
+      "Edit(filePath:**/private-key*)"
     ]
   }
 }

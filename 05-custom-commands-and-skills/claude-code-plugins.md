@@ -50,7 +50,7 @@ claude-plugins-official/
 
 Based on [claude.com/plugins](https://claude.com/plugins), here are the most popular plugins:
 
-### Frontend Design (141k+ installs)
+### Frontend Design (160k+ installs)
 
 ```bash
 /plugin install frontend-design@claude-plugins-official
@@ -73,7 +73,20 @@ Based on [claude.com/plugins](https://claude.com/plugins), here are the most pop
 
 ---
 
-### Code Review (68k+ installs)
+### Context7 (104k+ installs)
+
+```bash
+/plugin install context7@claude-plugins-official
+```
+
+**What it does:**
+- Upstash Context7 MCP server for live documentation lookup
+- Pull version-specific docs and code examples from source repos into LLM context
+- Keep documentation always up-to-date
+
+---
+
+### Code Review (79k+ installs)
 
 ```bash
 /plugin install code-review@claude-plugins-official
@@ -98,7 +111,20 @@ Based on [claude.com/plugins](https://claude.com/plugins), here are the most pop
 
 ---
 
-### Feature Dev (63k+ installs)
+### GitHub (74k+ installs)
+
+```bash
+/plugin install github@claude-plugins-official
+```
+
+**What it does:**
+- Official GitHub MCP server for repo management
+- Create issues, manage PRs, review code, search repos
+- Access GitHub's API from Claude Code
+
+---
+
+### Feature Dev (71k+ installs)
 
 ```bash
 /plugin install feature-dev@claude-plugins-official
@@ -119,7 +145,19 @@ Based on [claude.com/plugins](https://claude.com/plugins), here are the most pop
 
 ---
 
-### Superpowers (Popular Third-Party)
+### Code Simplifier (62k+ installs)
+
+```bash
+/plugin install code-simplifier@claude-plugins-official
+```
+
+**What it does:**
+- Analyzes code for unnecessary complexity
+- Suggests simplifications while preserving functionality
+- Focuses on readability and maintainability
+
+**Commands:**
+- `/code-simplifier:simplify` - Simplify selected code
 
 ```bash
 /plugin marketplace add obra/superpowers-marketplace
@@ -189,10 +227,14 @@ Part of the **Code Review** plugin or available separately.
 
 | Plugin | Installs | Description |
 |--------|----------|-------------|
-| **Context7** | 93k+ | Upstash MCP server for live documentation lookup |
-| **GitHub** | 65k+ | Official GitHub MCP server for repo management |
-| **Playwright** | - | Browser automation for testing |
-| **Supabase** | - | Supabase database integration |
+| **Context7** | 104k+ | Upstash MCP server for live documentation lookup |
+| **GitHub** | 74k+ | Official GitHub MCP server for repo management |
+| **Code Simplifier** | 62k+ | Code clarity agent for simplifications |
+| **Ralph Loop** | 59k+ | Iterative development using Ralph Wiggum technique |
+| **TypeScript LSP** | 54k+ | TypeScript/JavaScript language server |
+| **Superpowers** | 52k+ | TDD methodology and debugging skills |
+| **Playwright** | 51k+ | Browser automation for testing |
+| **Supabase** | 28k+ | Supabase database integration |
 
 ## Installing Third-Party Marketplaces
 
