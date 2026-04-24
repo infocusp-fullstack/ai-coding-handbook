@@ -91,6 +91,7 @@ ai-coding-handbook/
 ├── 08-workflow-tips/         # Development workflows
 ├── 09-philosophy/            # Mindset and approach
 ├── resources/                # Links and glossary
+├── Statusline/               # Claude Code statusline scripts (Win/Linux/Mac)
 ├── .claude/                  # Claude Code config (commands, skills)
 ├── .cursor/                  # Cursor rules
 └── .github/                  # Copilot instructions
@@ -120,6 +121,19 @@ Install these essential Claude Code plugins:
 ```
 
 See [Claude Code Plugins](05-custom-commands-and-skills/claude-code-plugins.md) for full details.
+
+## Claude Code Statusline
+
+A two-line colored statusline for Claude Code showing repo/branch, model, context usage, and Pro/Max plan usage (5-hour session, 7-day weekly, extended credits). Works on Windows (PowerShell), Linux, and macOS (bash).
+
+![Statusline preview](Statusline/assets/preview.png)
+
+```
+roshan/.claude | master ~6 ?3 | [Opus 4.7 (1M context)]
+Ctx:11% | 5h:15% (50m remaining)* | 7d:2%* | EXT:54%
+```
+
+See [Statusline/README.md](Statusline/README.md) for install, configuration, and testing instructions.
 
 ## Contributing
 
